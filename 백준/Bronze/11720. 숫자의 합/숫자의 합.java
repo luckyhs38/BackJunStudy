@@ -1,22 +1,22 @@
-//Scanner 로 입력받아 charAt() 을 사용하여 푸는 방법
+//br.read()로 데이터를 입력하자마자 바로 계산하여 결과를 출력
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int count = sc.nextInt();
-		String str = sc.next();
-		
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// BufferedReader 선언 및 반복할 문자열 변수 N 선언
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
+		// 합계 변수 선언
 		int sum = 0;
-		for(int i = 0; i< count; i++) {
-			
-			sum = sum + (str.charAt(i)-'0');
-			// charAt() 은 해당 문자의 아스키코드 값을 반환하므로 
-			//반드시 -48 또는 -'0' 을 해주어야 우리가 입력받은 숫자 값 그대로를 사용할 수 있다.
+		// 반복문을 사용 입력하면 바로 계산
+		for(int i =0; i<n; i++) {
+			sum += br.read() - 48;
 		}
-		
+		// 결과 출력
 		System.out.println(sum);
 
 	}
